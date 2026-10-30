@@ -1,0 +1,94 @@
+{
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devPath": "http://localhost:1420",
+    "distDir": "../dist"
+  },
+  "package": {
+    "productName": "Nidalee",
+    "version": "0.1.4"
+  },
+  "tauri": {
+    "updater": {
+      "active": true,
+      "dialog": true,
+      "endpoints": [
+        "https://nidal.ee/api/update/{{target}}/{{arch}}/{{current_version}}"
+      ],
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEY5OTZENjExNDkyRjM2MEEKUldRS05pOUpFZGFXK2Q0SUhrOUlVdm5pVzR1OU1ncFh2WjhMeFJmUitQaEVMdzZqNTgyTjlQdHMK",
+      "windows": {
+        "installMode": "passive"
+      }
+    },
+    "allowlist": {
+      "shell": {
+        "all": false,
+        "execute": false,
+        "sidecar": false,
+        "open": true,
+        "scope": []
+      },
+      "dialog": {
+        "all": false,
+        "open": true
+      },
+      "window": {
+        "all": true,
+        "close": true,
+        "hide": true,
+        "show": true,
+        "maximize": true,
+        "minimize": true,
+        "unmaximize": true,
+        "unminimize": true,
+        "startDragging": true
+      }
+    },
+    "bundle": {
+      "active": true,
+      "targets": ["msi", "updater"],
+      "identifier": "com.uoucat.nidalee",
+      "icon": [
+        "icons/48.png",
+        "icons/128.png",
+        "icons/256.png",
+        "icons/mac.icns",
+        "icons/icon.ico"
+      ],
+      "windows": {
+        "wix": {},
+        "nsis": {
+          "installerIcon": "icons/icon.ico"
+        },
+        "webviewFixedRuntimePath": null,
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": ""
+      }
+    },
+    "security": {
+      "csp": null
+    },
+    "systemTray": {
+      "iconPath": "icons/icon.ico",
+      "iconAsTemplate": true,
+      "title": "Nidalee"
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "resizable": true,
+        "title": "Nidalee",
+        "width": 785,
+        "height": 790,
+        "minWidth": 560,
+        "minHeight": 790,
+        "maxWidth": 785,
+        "maxHeight": 790,
+        "decorations": false,
+        "center": true
+      }
+    ]
+  }
+} 

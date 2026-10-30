@@ -1,0 +1,39 @@
+[package]
+name = "nidalee"
+version = "0.1.4"
+description = "Account manager and auto login for League of Legends and VALORANT"
+authors = ["dancer"]
+license = "GPL-3.0-only"
+repository = "https://github.com/dancer/nidalee"
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "1.5", features = [] }
+
+[dependencies]
+tauri = { version = "1.8", features = [ "window-all", "shell-open", "dialog-open", "system-tray", "updater"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+chrono = "0.4"
+base64 = "0.21.0"
+reqwest = { version = "0.11", default-features = false, features = ["json", "rustls-tls"] }
+enigo = "0.1.2"
+winreg = "0.50"
+windows = { version = "0.48", features = [
+    "Win32_Foundation",
+    "Win32_UI_WindowsAndMessaging",
+    "Win32_System_Threading",
+    "Win32_System_Memory",
+    "Win32_Security",
+    "Win32_Security_Cryptography",
+] }
+
+[features]
+custom-protocol = ["tauri/custom-protocol"]
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+incremental = false
+opt-level = "s"

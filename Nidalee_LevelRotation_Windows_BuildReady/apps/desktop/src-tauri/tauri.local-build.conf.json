@@ -1,0 +1,10 @@
+{
+  "tauri": {
+    "updater": {
+      "active": false
+    },
+    "bundle": {
+      "targets": ["msi"]
+    }
+  }
+}
